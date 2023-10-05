@@ -7,15 +7,11 @@ class Post < ActiveRecord::Base
     Comment.where(posts_id: id).limit(5).order(created_at: :asc).pluck(:text)
   end
 
-  def update_comments_counter
-    post = self
-    post.increment!(:comments_counter)
-    post.save
-  end
+  after_save :update_posts_counter
 
-  def update_likes_counter
-    post = self
-    post.increment!(:likes_counter)
-    post.save
+  private
+  def update_posts_counter
+    author.increment!(:posts_counter)
+    author.save
   end
 end
