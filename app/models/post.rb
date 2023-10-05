@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
-  belongs_to :author, class_name: 'User', foreign_key: 'authors_id'
-  has_many :likes, class_name: 'Like'
-  has_many :comments, class_name: 'Comment'
+  belongs_to :author, class_name: 'User'
+  has_many :likes, class_name: 'Like', foreign_key: 'post_id'
+  has_many :comments, class_name: 'Comment', foreign_key: 'post_id'
 
   def recent_comments
     comments.limit(5).order(created_at: :asc).pluck(:text)
