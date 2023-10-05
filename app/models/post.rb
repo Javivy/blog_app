@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
   after_save :update_posts_counter
 
   private
+
   def update_posts_counter
     author.increment!(:posts_counter)
     author.save
