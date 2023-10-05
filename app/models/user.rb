@@ -5,7 +5,12 @@ class User < ActiveRecord::Base
 
   def recent_posts
     Post.where(authors_id: self.id).limit(3).order(created_at: :asc).pluck(:title, :text)
-    # puts(user.id)
+  end
+
+  def update_counter
+    user = self
+    user.increment!(:posts_counter)
+    user.save
   end
 end
 
