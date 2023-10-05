@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :likes, class_name: "Like"
   has_many :comments, class_name: "Comment"
 
-  # def recent_comments(post)
-
-  # end
+  def recent_comments
+    Comment.where(posts_id: self.id).limit(5).order(created_at: :asc).pluck(:text)
+  end
 end
