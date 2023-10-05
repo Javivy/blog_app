@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :comments, class_name: 'Comment'
 
   def recent_comments
-    Comment.where(posts_id: id).limit(5).order(created_at: :asc).pluck(:text)
+    comments.limit(5).order(created_at: :asc).pluck(:text)
   end
 
   after_save :update_posts_counter
