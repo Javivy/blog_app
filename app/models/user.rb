@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     Post.where(authors_id: self.id).limit(3).order(created_at: :asc).pluck(:title, :text)
   end
 
-  def update_counter
+  def update_posts_counter
     user = self
     user.increment!(:posts_counter)
     user.save
