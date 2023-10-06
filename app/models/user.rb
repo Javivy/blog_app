@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   def recent_posts
     posts.limit(3).order(created_at: :asc).pluck(:title, :text)
   end
+
+  validates :name, presence: true
 end
