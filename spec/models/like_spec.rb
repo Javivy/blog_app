@@ -31,9 +31,9 @@ RSpec.describe Like, type: :model do
       likes_counter: 0,
       author: user
     )
-    like = Like.create(
-      user: user,
-      post: post
+    Like.create(
+      user:,
+      post:
     )
 
     expect(post.likes_counter).to eq(1)

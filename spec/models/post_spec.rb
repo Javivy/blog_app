@@ -9,7 +9,7 @@ RSpec.describe Post, type: :model do
     post = Post.new(
       title: 'Example Post',
       text: 'Hello',
-      author: author,
+      author:,
       comments_counter: 0,
       likes_counter: 0
     )
@@ -24,7 +24,7 @@ RSpec.describe Post, type: :model do
     post = Post.new(
       title: nil,
       text: 'Hello',
-      author: author,
+      author:,
       comments_counter: 0,
       likes_counter: 0
     )
@@ -66,7 +66,7 @@ RSpec.describe Post, type: :model do
     post = Post.new(
       title: 'Example Post',
       text: 'Hello',
-      author: author,
+      author:,
       comments_counter: 0,
       likes_counter: 0
     )
@@ -81,7 +81,7 @@ RSpec.describe Post, type: :model do
     post = Post.new(
       title: 'Example Post',
       text: 'Hello',
-      author: author,
+      author:,
       comments_counter: 0,
       likes_counter: 0
     )
@@ -96,7 +96,7 @@ RSpec.describe Post, type: :model do
     post = Post.new(
       title: 'Example Post',
       text: 'Hello',
-      author: author,
+      author:,
       comments_counter: 0,
       likes_counter: 0
     )
@@ -104,13 +104,6 @@ RSpec.describe Post, type: :model do
     post.save
 
     # Create some comments associated with the post
-    comments = [
-      post.comments.create(text: 'Comment 1', user: author, post: post),
-      post.comments.create(text: 'Comment 2', user: author, post: post),
-      post.comments.create(text: 'Comment 3', user: author, post: post),
-      post.comments.create(text: 'Comment 4', user: author, post: post),
-      post.comments.create(text: 'Comment 5', user: author, post: post)
-    ]
 
     # Call the recent_comments method
     recent_comments = post.recent_comments
@@ -133,7 +126,7 @@ RSpec.describe Post, type: :model do
     post = Post.new(
       title: 'Example Post',
       text: 'Hello',
-      author: author,
+      author:,
       comments_counter: 0,
       likes_counter: 0
     )

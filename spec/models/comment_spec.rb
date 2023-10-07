@@ -51,10 +51,10 @@ RSpec.describe Comment, type: :model do
       likes_counter: 0,
       author: user
     )
-    comment = Comment.create(
+    Comment.create(
       text: 'Example Comment',
-      user: user,
-      post: post
+      user:,
+      post:
     )
 
     expect(post.comments_counter).to eq(1)

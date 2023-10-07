@@ -40,13 +40,6 @@ RSpec.describe User, type: :model do
     )
 
     # Create some posts associated with the user
-    posts = [
-      user.posts.create(title: 'Title 1', text: 'Text 1', author: user),
-      user.posts.create(title: 'Title 2', text: 'Text 2', author: user),
-      user.posts.create(title: 'Title 3', text: 'Text 3', author: user),
-      user.posts.create(title: 'Title 4', text: 'Text 4', author: user),
-      user.posts.create(title: 'Title 5', text: 'Text 5', author: user)
-    ]
 
     # Call the recent_posts method
     recent_posts = user.recent_posts
