@@ -10,4 +10,6 @@ class Comment < ActiveRecord::Base
     post.increment!(:comments_counter)
     post.save
   end
+
+  validates :text, presence: true, length: { maximum: 250 }
 end
