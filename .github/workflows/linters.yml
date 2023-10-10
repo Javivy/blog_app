@@ -5,10 +5,6 @@ on: pull_request
 env:
   FORCE_COLOR: 1
 
-name: Clear bundler cache
-    run: |
-      bundle clean --force
-
 jobs:
   rubocop:
     name: Rubocop
