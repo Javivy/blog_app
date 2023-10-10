@@ -7,6 +7,9 @@ env:
 
 jobs:
   rubocop:
+    name: Clear bundler cache
+    run: |
+      bundle clean --force
     name: Rubocop
     runs-on: ubuntu-22.04
     steps:
