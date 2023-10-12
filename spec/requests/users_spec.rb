@@ -14,6 +14,12 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('users/index')
     end
 
+    it "renders the show template" do
+      get "/users/123"
+
+      expect(response).to render_template('users/show')
+    end
+
     it "includes the correct placeholder text" do
       get "/users/"
       expect(response).to be_successful
@@ -21,6 +27,15 @@ RSpec.describe 'Users', type: :request do
       doc = Nokogiri::HTML(response.body)
 
       expect(doc.text).to include('Users index page')
+    end
+
+    it "includes the correct placeholder text" do
+      get "/users/123"
+      expect(response).to be_successful
+
+      doc = Nokogiri::HTML(response.body)
+
+      expect(doc.text).to include('User ID from the URL: 123')
     end
   end
 end
