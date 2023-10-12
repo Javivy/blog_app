@@ -1,1 +1,6 @@
 <h1>Users index page</h1>
+<% @users.each do |user| %>
+  <a href="<%= user_path(user)%>">
+    <p><%= user.name %></p>
+  </a>
+<% end %>
