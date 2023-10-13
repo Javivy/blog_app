@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :likes, class_name: 'Like', foreign_key: 'user_id'
 
   def recent_posts
-    posts.limit(3).order(created_at: :asc).pluck(:title, :text)
+    posts.limit(3).order(created_at: :asc)
   end
 
   validates :name, presence: true

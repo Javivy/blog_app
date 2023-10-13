@@ -1,1 +1,10 @@
 <h1>Users index page</h1>
+<% @users.each do |user| %>
+<div style="display: flex; gap: 1rem; margin: 1rem;">
+  <img src="<%= user.photo %>"/>
+  <a href="<%= user_path(user)%>" style="border: 1px solid #000; display: flex; justify-content: space-between; padding: 1rem; width: 100%;">
+    <p><%= user.name %></p>
+    <p>Number of Posts: <%= user.posts_counter %></p>
+  </a>
+</div>
+<% end %>
