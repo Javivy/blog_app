@@ -1,2 +1,29 @@
 <h1>Details of a given Post</h1>
-<p>Post with ID <%= params[:id] %></p>
+<div style="border: 1px solid #000; margin: 1rem; padding: 8px 1rem;">
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <h2>Post by username: <%= @post.author.name %></h2>
+    <div style="display: flex; gap: 1rem">
+      <p>Comments: <%= @post.comments_counter %></p>
+      <p>Likes: <%= @post.likes_counter %></p>
+    </div>
+  </div>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius repudiandae
+    qui est molestiae quidem consequatur laboriosam quod iste, architecto totam
+    culpa inventore, harum aspernatur sequi maxime! Amet tempora fuga commodi.
+  </p>
+  <div style="border: 1px solid #000; display: flex; flex-direction: column; gap: 1rem;">
+    <% @comments.each do |comment| %>
+      <div>
+        <p> Username: <%= comment.user.name %> </p>
+        <p> Username: <%= comment.text %> </p>
+      </div>
+    <% end %>
+  </div>
+</div>
