@@ -1,15 +1,29 @@
-<div style="display: flex; margin: 15px; padding: 1rem; gap: 1rem;">
-  <img src="<%= @user.photo %>"/>
-  <div style="border: 1px solid #000; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 1rem;">
-    <h1>User <strong><%= @user.name %></strong> ID from the URL: <%= @user.id %></h1>
+<div style="display: flex; margin: 15px; padding: 1rem; gap: 1rem">
+  <img src="<%= @user.photo %>" />
+  <div
+    style="
+      border: 1px solid #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem;
+    "
+  >
+    <h1>
+      User <strong><%= @user.name %></strong> ID from the URL: <%= @user.id %>
+    </h1>
     <p>Number of posts: <%= @user.posts_counter %></p>
   </div>
 </div>
 <% @posts.each_with_index do |post, index| %>
-<div style="border: 1px solid #000; margin: 15px 15px 0 15px; padding: 1rem;">
-  <a href="<%= user_post_path(post.author, post)%>" style="display: flex; justify-content: space-between;">
-    <div style="display: flex; flex-direction: column;">
-      <h3 style="display: inline-block;">
+<div style="border: 1px solid #000; margin: 15px 15px 0 15px; padding: 1rem">
+  <a
+    href="<%= user_post_path(post.author, post)%>"
+    style="display: flex; justify-content: space-between"
+  >
+    <div style="display: flex; flex-direction: column">
+      <h3 style="display: inline-block">
         Post #<%= index + 1 %> by <%= post.author.name %>
       </h3>
       <p><%= post.title %></p>
@@ -23,12 +37,13 @@
 </div>
 <div style="border: 1px solid #000; padding: 1rem; margin: 0 15px 15px 15px">
   <% if post.recent_comments.empty? %>
-    <p> There are no comments </p>
-  <% else %>
-    <%  post.recent_comments.each do |comment|%>
-      <p>Username: <%= comment.user.name %></p>
-      <p> <%= comment.text %></p>
-    <%  end%>
-  <% end %>
+  <p>There are no comments</p>
+  <% else %> <% post.recent_comments.each do |comment|%>
+  <p>Username: <%= comment.user.name %></p>
+  <p><%= comment.text %></p>
+  <% end%> <% end %>
 </div>
 <% end %>
+<div class="pagination">
+  <%= will_paginate @posts%>
+</div>
