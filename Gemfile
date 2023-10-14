@@ -48,7 +48,6 @@ gem 'bootsnap', require: false
 gem 'rails-controller-testing'
 gem 'will_paginate'
 gem 'bootstrap'
-gem 'dartsass-sprockets'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
