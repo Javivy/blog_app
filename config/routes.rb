@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :posts do
+      member do
+        post 'like'
+        delete 'unlike'
+      end
       resources :comments
     end
   end

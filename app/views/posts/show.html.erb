@@ -27,6 +27,11 @@
         </div>
       <%  end%>
     <% end %>
+    <% if @current_user && @current_user.liked?(@post) %>
+      <%= link_to "Unlike", unlike_user_post_path(@post), method: :delete %>
+    <% else %>
+      <%= link_to "Like", like_user_post_path(@current_user, @post), method: :post %>
+    <% end %>
     <div>
       <a href="<%= new_user_post_comment_path(@current_user, @post) %>">Create a new comment</a>
     </div>
