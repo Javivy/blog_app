@@ -10,7 +10,7 @@
     <h2>Post by username: <%= @post.author.name %></h2>
     <div style="display: flex; gap: 1rem">
       <p>Comments: <%= @post.comments_counter %></p>
-      <p>Likes: <%= @post.likes_counter %></p>
+      <p id="likes-counter">Likes: <%= @post.likes_counter %></p>
     </div>
   </div>
   <p>
@@ -20,18 +20,21 @@
     <% if @comments.empty? %>
       <p> There are no comments </p>
     <% else %>
-      <%  @comments.each do |comment|%>
+      <% @comments.each do |comment| %>
         <div>
           <p>Username: <%= comment.user.name %></p>
-          <p> <%= comment.text %></p>
+          <p><%= comment.text %></p>
         </div>
-      <%  end%>
+      <% end %>
     <% end %>
-    <% if @current_user && @current_user.liked?(@post) %>
-      <%= link_to "Unlike", unlike_user_post_path(@post), method: :delete %>
-    <% else %>
-      <%= link_to "Like", like_user_post_path(@current_user, @post), method: :post %>
-    <% end %>
+    <div id="post-<%= @post.id %>-like-buttons">
+      <%= form_with url: user_post_likes_path(@user, @post), model: Like do |form| %>
+        <%= form.hidden_field  :post_id, value: @post.id %>
+        <div class='like-button'>
+          <%= form.submit "Like post" %>
+        </div>
+      <% end %>
+    </div>
     <div>
       <a href="<%= new_user_post_comment_path(@current_user, @post) %>">Create a new comment</a>
     </div>
