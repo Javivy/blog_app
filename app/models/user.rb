@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   end
 
   def liked?(post)
-    likes.exists?(post: post)
+    likes.exists?(post:)
   end
 
   validates :name, presence: true

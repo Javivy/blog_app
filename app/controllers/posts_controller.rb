@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post.author = @current_user
 
     if @post.save
-      puts "Post saved correctly"
+      puts 'Post saved correctly'
       flash[:success] = 'Post was successfully created.'
       redirect_to user_post_path(@current_user, @post)
     else
