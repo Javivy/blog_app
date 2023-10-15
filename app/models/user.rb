@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
     posts.limit(3).order(created_at: :asc)
   end
 
+  def liked?(post)
+    likes.exists?(post:)
+  end
+
   validates :name, presence: true
   validates :posts_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 end

@@ -44,6 +44,9 @@
   <% end%> <% end %>
 </div>
 <% end %>
+<div>
+  <a href="<%= new_user_post_path(@current_user) %>">Create a new post</a>
+</div>
 <div class="pagination">
   <%= will_paginate @posts%>
 </div>
