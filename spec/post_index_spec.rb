@@ -58,12 +58,12 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_xpath(".//div[@class='pagination']")
     end
 
-    # it 'redirects to a post\'s show page' do
-    #   visit user_posts_path(user_id: @user.id)
-    #   first('a.my-link').click
-    #   expected_url = "http://www.example.com/users/#{@user.id}/posts/#{@post.id}"
-    #   puts(current_url)
-    #   expect(current_url).to start_with(expected_url)
-    # end
+    it 'redirects to a post\'s show page' do
+      visit user_posts_path(user_id: @user.id)
+      first('a.my-link').click
+      expected_url = "http://www.example.com/users/#{@user.id}/posts/#{@post.id}"
+      puts(current_url)
+      expect(current_url).to start_with(expected_url)
+    end
   end
 end
