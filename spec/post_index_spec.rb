@@ -25,7 +25,7 @@ RSpec.describe 'Posts', type: :feature do
 
     it 'can see the number of posts the user has written.' do
       visit user_posts_path(user_id: @user.id)
-      expect(page).to have_content("Total Posts: #{@user.posts_counter}")
+      expect(page).to have_content("Number of posts: #{@user.posts_counter}")
     end
 
     it 'can see a post\'s title.' do
