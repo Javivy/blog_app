@@ -7,7 +7,7 @@
       align-items: center;
     "
   >
-    <h2>Post by username: <%= @post.author.name %></h2>
+    <h2>Post by username: <%= @post.author.name %> - <%= @post.title %></h2>
     <div style="display: flex; gap: 1rem">
       <p>Comments: <%= @post.comments_counter %></p>
       <p id="likes-counter">Likes: <%= @post.likes_counter %></p>
