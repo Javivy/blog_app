@@ -53,10 +53,10 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content("Likes: #{@post.likes_counter}")
     end
 
-    # it 'can see a section for pagination if there are more posts than fit on the view.' do
-    #   visit user_posts_path(user_id: @user.id)
-    #   expect(page).to have_xpath(".//div[@class='pagination']")
-    # end
+    it 'can see a section for pagination if there are more posts than fit on the view.' do
+      visit user_posts_path(user_id: @user.id)
+      expect(page).to have_xpath(".//div[@class='pagination']")
+    end
 
     # it 'redirects to a post\'s show page' do
     #   visit user_posts_path(user_id: @user.id)
