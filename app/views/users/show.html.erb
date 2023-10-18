@@ -1,24 +1,27 @@
 <h1>Here's the user info</h1>
-<h2>User <strong><%= @user.name %></strong> ID from the URL: <%= params[:id] %></h2>
+<div>
+  <img src="<%= @user.photo %>"/>
+  <h2>User <strong><%= @user.name %></strong> ID from the URL: <%= params[:id] %></h2>
+</div>
 <div style="border: 1px solid #000; margin: 15px; display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
   <div>
     <h3>Bio</h3>
     <p><%= @user.bio %></p>
   </div>
-  <p>Number of posts: <%= @user.posts_counter %></p>
+  <p>Number of posts: <%= @user.posts.count %></p>
 </div>
 <% @recent_posts.each do |post| %>
 <div style="border: 1px solid #000; margin: 15px; padding: 1rem;">
-  <a href="<%= user_post_path(post.author, post)%>" style="display: flex; justify-content: space-between;">
+  <div style="display: flex; justify-content: space-between;">
     <div>
-      <p><%= post.title %></p>
+      <a href="<%= user_post_path(post.author, post)%>"><%= post.title %></a>
       <p><%= post.text %></p>
     </div>
     <div>
       <p>Comments: <%= post.comments_counter %></p>
       <p>Likes: <%= post.likes_counter %></p>
     </div>
-  </a>
+  </div>
 </div>
 <% end %>
 <a href="<%= user_posts_path(@user)%>"> See all posts </a>
