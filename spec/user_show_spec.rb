@@ -16,6 +16,7 @@ RSpec.describe 'User Show Page', type: :feature do
   it 'displays user information' do
     expect(page).to have_selector("img[src*='https://avatars.githubusercontent.com/u/109859994?v=4']")
     expect(page).to have_content('Javier')
+    expect(page).to have_content('Total Posts: 3')
     expect(page).to have_content('Number of posts: 3')
     expect(page).to have_content('Full-Stack Developer')
   end
