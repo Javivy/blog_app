@@ -18,10 +18,10 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_xpath(".//img[@src='#{@user.photo}']")
     end
 
-    # it 'shows the user\s username' do
-    #   visit user_posts_path(user_id: @user.id)
-    #   expect(page).to have_content(@user.name)
-    # end
+    it 'shows the user\s username' do
+      visit user_posts_path(user_id: @user.id)
+      expect(page).to have_content(@user.name)
+    end
 
     # it 'can see the number of posts the user has written.' do
     #   visit user_posts_path(user_id: @user.id)
