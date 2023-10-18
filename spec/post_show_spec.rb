@@ -38,10 +38,10 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content(@post.text)
     end
 
-    # it 'shows the username of each commentor' do
-    #   visit user_post_path(user_id: @user.id, id: @post.id)
-    #   expect(page).to have_content(@comment.user.name)
-    # end
+    it 'shows the username of each commentor' do
+      visit user_post_path(user_id: @user.id, id: @post.id)
+      expect(page).to have_content(@comment.user.name)
+    end
 
     # it 'shows the comment each commentor left' do
     #   visit user_post_path(user_id: @user.id, id: @post.id)
