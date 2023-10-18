@@ -38,10 +38,10 @@ RSpec.describe 'Posts', type: :feature do
       expect(page).to have_content(@post.text)
     end
 
-    # it 'can see the first comment of a post' do
-    #   visit user_posts_path(user_id: @user.id)
-    #   expect(page).to have_content(@comment.text)
-    # end
+    it 'can see the first comment of a post' do
+      visit user_posts_path(user_id: @user.id)
+      expect(page).to have_content(@comment.text)
+    end
 
     # it 'can see how many comments a post has.' do
     #   visit user_posts_path(user_id: @user.id)
