@@ -1,5 +1,8 @@
 <h1>Here's the user info</h1>
-<h2>User <strong><%= @user.name %></strong> ID from the URL: <%= params[:id] %></h2>
+<div>
+  <img src="<%= @user.photo %>"/>
+  <h2>User <strong><%= @user.name %></strong> ID from the URL: <%= params[:id] %></h2>
+</div>
 <div style="border: 1px solid #000; margin: 15px; display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
   <div>
     <h3>Bio</h3>
