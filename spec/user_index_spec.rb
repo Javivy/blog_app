@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'User Index Page' do
-  scenario 'displays user information' do
+RSpec.describe 'User Index Page', type: :feature do
+  it 'displays user information' do
     user1 = User.create(
       name: 'Masuma',
       photo: 'https://avatars.githubusercontent.com/u/112550568?v=4',
