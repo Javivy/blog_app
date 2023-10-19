@@ -86,7 +86,11 @@ rspec spec
 
 
 ## 👥 Authors <a name="authors"></a>
+👤 **Syeda Masuma Fatima**
 
+- GitHub: [@MasumaJaffery](https://github.com/MasumaJaffery)
+- Twitter: [@MasumaJaffery](https://twitter.com/MasumaJaffery)
+- LinkedIn: [Masuma Jaffery](https://www.linkedin.com/in/masuma-jaffery-797a29256/)
 
 👤 **Javivy**
 
