@@ -48,6 +48,7 @@ gem 'will_paginate', '~> 3.3'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+gem 'devise'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -56,7 +57,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   # Add gem for controller Testing.
   gem 'bogus'
-  gem 'devise'
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'regexp_parser', '2.8.1'
