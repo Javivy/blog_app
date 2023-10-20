@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def new
-    @user = @current_user
+    @user = current_user
     @post = Post.find(params[:post_id])
     @comment = Comment.new
   end
@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.new(post_params)
     @comment.post = @post
-    @comment.user = @current_user
+    @comment.user = current_user
 
     if @comment.save
       puts 'Comment saved correctly'

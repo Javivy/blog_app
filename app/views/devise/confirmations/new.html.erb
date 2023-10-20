@@ -11,6 +11,9 @@
   <div class="actions">
     <%= f.submit "Resend confirmation instructions" %>
   </div>
+  <div>
+    <%= link_to 'Resend Confirmation Instructions', new_user_confirmation_path, method: :post %>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
