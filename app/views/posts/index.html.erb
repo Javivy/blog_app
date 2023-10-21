@@ -16,32 +16,38 @@
     <p>Number of posts: <%= @user.posts.count %></p>
   </div>
 </div>
-<% @posts.each_with_index do |post, index| %>
-<div style="border: 1px solid #000; margin: 15px 15px 0 15px; padding: 1rem">
-  <div
-    style="display: flex; justify-content: space-between"
-  >
-    <div style="display: flex; flex-direction: column">
-      <a href="<%= user_post_path(post.author, post)%>" class="my-link" style="display: inline-block">
-        Post #<%= index + 1 %> by <%= post.author.name %>
-      </a>
-      <p><%= post.title %></p>
-      <p><%= post.text %></p>
-    </div>
-    <div>
-      <p>Comments: <%= post.comments_counter %></p>
-      <p>Likes: <%= post.likes_counter %></p>
-    </div>
+<% if @posts.empty? %>
+  <div style="border: 1px solid #000; margin: 15px 15px 0 15px; padding: 1rem">
+    <p>There are no posts yet</p>
   </div>
-</div>
-<div style="border: 1px solid #000; padding: 1rem; margin: 0 15px 15px 15px">
-  <% if post.recent_comments.empty? %>
-  <p>There are no comments</p>
-  <% else %> <% post.recent_comments.each do |comment|%>
-  <p>Username: <%= comment.user.name %></p>
-  <p><%= comment.text %></p>
-  <% end%> <% end %>
-</div>
+<% else %>
+  <% @posts.each_with_index do |post, index| %>
+    <div style="border: 1px solid #000; margin: 15px 15px 0 15px; padding: 1rem">
+      <div
+        style="display: flex; justify-content: space-between"
+      >
+        <div style="display: flex; flex-direction: column">
+          <a href="<%= user_post_path(post.author, post)%>" class="my-link" style="display: inline-block">
+            Post #<%= index + 1 %> by <%= post.author.name %>
+          </a>
+          <p><%= post.title %></p>
+          <p><%= post.text %></p>
+        </div>
+        <div>
+          <p>Comments: <%= post.comments_counter %></p>
+          <p>Likes: <%= post.likes_counter %></p>
+        </div>
+      </div>
+    </div>
+    <div style="border: 1px solid #000; padding: 1rem; margin: 0 15px 15px 15px">
+      <% if post.recent_comments.empty? %>
+      <p>There are no comments</p>
+      <% else %> <% post.recent_comments.each do |comment|%>
+      <p>Username: <%= comment.user.name %></p>
+      <p><%= comment.text %></p>
+      <% end%> <% end %>
+    </div>
+  <% end %>
 <% end %>
 <div>
   <a href="<%= new_user_post_path(current_user) %>">Create a new post</a>

@@ -24,6 +24,9 @@
         <div>
           <p>Username: <%= comment.user.name %></p>
           <p><%= comment.text %></p>
+          <% if current_user == comment.user || current_user.role == 'admin' %>
+            <%= render partial: 'comments/delete_form', locals: { comment: comment } %>
+          <% end %>
         </div>
       <% end %>
     <% end %>

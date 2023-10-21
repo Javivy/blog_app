@@ -10,18 +10,24 @@
   </div>
   <p>Number of posts: <%= @user.posts.count %></p>
 </div>
-<% @recent_posts.each do |post| %>
-<div style="border: 1px solid #000; margin: 15px; padding: 1rem;">
-  <div style="display: flex; justify-content: space-between;">
-    <div>
-      <a href="<%= user_post_path(post.author, post)%>"><%= post.title %></a>
-      <p><%= post.text %></p>
-    </div>
-    <div>
-      <p>Comments: <%= post.comments_counter %></p>
-      <p>Likes: <%= post.likes_counter %></p>
+<% if @recent_posts.empty? %>
+  <div style="border: 1px solid #000; margin: 15px 15px 0 15px; padding: 1rem">
+    <p>There are no posts yet</p>
+  </div>
+<% else %>
+  <% @recent_posts.each do |post| %>
+  <div style="border: 1px solid #000; margin: 15px; padding: 1rem;">
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <a href="<%= user_post_path(post.author, post)%>"><%= post.title %></a>
+        <p><%= post.text %></p>
+      </div>
+      <div>
+        <p>Comments: <%= post.comments_counter %></p>
+        <p>Likes: <%= post.likes_counter %></p>
+      </div>
     </div>
   </div>
-</div>
+  <% end %>
 <% end %>
 <a href="<%= user_posts_path(@user)%>"> See all posts </a>
